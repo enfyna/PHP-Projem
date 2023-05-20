@@ -27,8 +27,7 @@ Bu repoyu [indirin](https://github.com/enfyna/PHP-Projem/archive/refs/heads/main
 #### 2. Adım
 
 İndirdiğiniz zip dosyasını XAMPP'ın bilgisayarınızda kurulu olduğu dizindeki **htdocs** klasörüne atın.
-**htdocs** klasörünüz boş değilse diğer dosyalarınızın yedeğini aldıktan sonra silin ve zip dosyasını çıkarın.
-Zip dosyasını çıkardıktan sonra zip'i silebilirsiniz. *PHP-Projem-main* klasörünün içidekileri kesip **htdocs** içine yapıştırın. Bunları yaptıktan sonra **htdocs** klasörünüzün içinde repoda gördüğünüz dosyalar olmalı. Son olarak **SQL** klasörünü açın, bu klasör birazdan işimize yarayacak kapatmayın. Şimdilik alta alabilirsiniz.
+**htdocs** klasörünüz boş değilse diğer dosyalarınızın yedeğini aldıktan sonra silin ve zip dosyasını çıkarın. *PHP-Projem-main* klasörünün içidekileri kesip **htdocs** içine yapıştırın. Bunları yaptıktan sonra **htdocs** klasörünüzün içinde repoda gördüğünüz dosyalar olmalı. Son olarak **SQL** klasörünü açın, bu klasör birazdan işimize yarayacak kapatmayın. Şimdilik alta alabilirsiniz.
 
 #### 3. Adım 
 
