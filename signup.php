@@ -1,11 +1,8 @@
-<?php include_once "site/head.php"; ?>
-<?php include_once "site/header.php"; ?>
-
+<?php include_once "site/head.php";include_once "site/header.php"; ?>
 <?php
 require_once "library/config.php";
 require_once "library/functions.php";
 require_once "library/kick_user.php";
-
 do {
   if (isset($_POST["username"]) && isset($_POST["password"])) {
     if (strlen($_POST["username"]) < 3) {
@@ -26,7 +23,6 @@ do {
       $nametaken = true;
       break;
     };
-
     $user_pass = hash("sha256", $user_pass);
   
     mysqli_query($db, 
@@ -41,11 +37,8 @@ do {
       session_start();
       redirectTo("index.php", 0);
     };
-    
   };
 } while (0);
-
-
 ?>
 <main>
   <form class="login vertical" action="signup.php" method="post">
@@ -72,6 +65,4 @@ do {
     <p>Hesabın var mı? <a href="login.php">Giriş Yap!</a></p>
   </form>
 </main>
-
 <?php include_once "site/footer.php"; ?>
-
