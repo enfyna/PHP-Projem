@@ -6,7 +6,7 @@ ini_set('display_errors', 1); // Hata Mesajlarını Yazdır
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
-$db_name = "Deneme1";
+$db_name = "db1";
 
 $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
