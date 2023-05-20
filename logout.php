@@ -1,7 +1,4 @@
-<?php include_once "site/head.php"; ?>
-
-<?php include_once "site/header.php"; ?>
-
+<?php include_once "site/head.php";include_once "site/header.php"; ?>
 <main>
 <h1 class="hw"style="background-color: #2A271F;
 border-radius:.25rem;
@@ -10,7 +7,6 @@ padding: 5rem;
 text-align:center;
 height:50rem;">Çıkış Yapılıyor...</h1>
 </main>
-
 <?php include_once "site/footer.php"; ?>
 
 <?php
