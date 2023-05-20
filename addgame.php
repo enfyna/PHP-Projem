@@ -61,9 +61,11 @@ $game_name = $_POST["game_name"];
 $game_developer = $_POST["game_developer"];
 $game_release_date = $_POST["game_release_date"];
 $game_genre = $_POST["game_genre"];
-$game_description = $_POST["game_description"];
 $game_image = $_POST["game_image"];
 $user_id = $_SESSION["user_id"];
+$game_description = $_POST["game_description"];
+$del = "'";
+$game_description = str_replace($del,"",$game_description);
 
 mysqli_query($db, // Oyunu ekle
     "INSERT INTO games(game_name,user_id,game_description,game_release_date,game_developer,game_genre,game_image)
