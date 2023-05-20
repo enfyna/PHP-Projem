@@ -5,7 +5,6 @@
             </div>
             <div style="display:flex;flex-direction: row;align-items:space-around;justify-content: center;">
                 <a href="https://github.com/enfyna/PHP-Projem"><img src="images/github.svg" height="100%" style="display:block;margin:auto;"></a>
-                <!-- <div style="margin:30px">Disclaimer</div><div style="margin:30px">Privacy Policy</div><div style="margin:30px">Terms of Use</div><div style="margin:30px">Contact Us</div> -->
             </div>
             <div style="color: darkgray;">&copy;</div>
             <div style="color: darkgray;">2023-2023</div>
