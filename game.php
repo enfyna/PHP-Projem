@@ -1,23 +1,23 @@
-<?php 
+<?php
 include_once "site/head.php";
-include_once "site/header.php"; 
+include_once "site/header.php";
 ?>
 <main>
-<?php 
+<?php
 require_once "library/config.php";
 require_once "library/functions.php";
 
 if (!isset($_GET['game_id'])){ // Oyun IDsi alınamazsa ana menuye geri dön
-  //redirectTo("index.php",0); 
+  redirectTo("index.php",0);
 };
-$game_id = $_GET['game_id']; 
+$game_id = $_GET['game_id'];
 
 $query = "SELECT games.*,users.user_name,users.user_point,users.user_is_mod FROM games LEFT JOIN users ON games.user_id = users.user_id WHERE games.game_id = '$game_id'";
-$q = mysqli_query($db, $query); // Oyun bilgilerini ve oyunu ekleyen kullanıcının bilgilerini al 
- 
+$q = mysqli_query($db, $query); // Oyun bilgilerini ve oyunu ekleyen kullanıcının bilgilerini al
+
 $row_num = mysqli_num_rows($q);
-if($row_num == 0){ // Oyun IDsi bulunamazsa ana menuye geri dön
-  //redirectTo("index.php",0); 
+if($row_num == 0){ // Oyun bulunamazsa ana menuye geri dön
+  redirectTo("index.php",0);
 };
 $game_data = mysqli_fetch_assoc($q); // Oyun bilgilerini al
 
@@ -25,13 +25,13 @@ if(isset($_POST["comment"])){ // Kullanıcı yorum bıraktıysa onu ekle
   $user_id = $_SESSION["user_id"];
   $comment = $_POST["comment"];
   $rating = $_POST["rating"];
-  mysqli_query($db, // Yorumu ekle 
-    "INSERT INTO ratings(game_id,user_id,rating_comment,rating_point) VALUES('" . "$game_id" . "','" . "$user_id" . "','" . "$comment" . "','" . "$rating" . "')"); 
+  mysqli_query($db, // Yorumu ekle
+    "INSERT INTO ratings(game_id,user_id,rating_comment,rating_point) VALUES('" . "$game_id" . "','" . "$user_id" . "','" . "$comment" . "','" . "$rating" . "')");
   mysqli_query($db, // Kullanıcı puanını 1 arttır
     "UPDATE users SET user_point = (SELECT users.user_point FROM users WHERE user_id = '$user_id')+1 WHERE user_id = '$user_id'");
 };
 
-// Yorumları al ve oyunun puanını hesapla
+// Filtreye göre sorguyu ayarla
 if(isset($_POST["filter"])){
   if($_POST["filter"] == "incpoint"){
     $query = "SELECT ratings.rating_id,ratings.rating_comment,ratings.rating_point,users.user_id, users.user_name, users.user_point, users.user_is_mod FROM ratings JOIN users ON ratings.user_id = users.user_id WHERE game_id = '$game_id' ORDER BY ratings.rating_point ASC";
@@ -51,15 +51,21 @@ if(isset($_POST["filter"])){
 }else{
   $query = "SELECT ratings.rating_id,ratings.rating_comment,ratings.rating_point,users.user_id, users.user_name, users.user_point, users.user_is_mod FROM ratings JOIN users ON ratings.user_id = users.user_id WHERE game_id = '$game_id'";
 };
+// Yorumları al ve oyunun puanını hesapla
 $comment_q = mysqli_query($db, $query);
 $comment_num = mysqli_num_rows($comment_q);
 if($comment_num > 0){
   $comments = [];
   $game_rating_point = 0;
-  for ($i=0; $i < $comment_num ; $i++) { 
+  for ($i=0; $i < $comment_num ; $i++) {
     $comment = mysqli_fetch_assoc($comment_q);
     $comments[] = $comment;
+    // Oyun puanını hesapla
     $game_rating_point += $comment["rating_point"];
+    // Kullanıcı bu oyuna yorum atmış mı onuda kontrol et
+    if(isset($_SESSION["user_id"]) && $comment["user_id"] == $_SESSION["user_id"]){
+      $user_has_comment = true;
+    };
   };
   $game_rating_point = $game_rating_point / $comment_num;
 }else{
@@ -83,7 +89,7 @@ if($comment_num > 0){
     </b>
   </div>
 </div>
-<?php 
+<?php
 if(isset($_SESSION["user_is_mod"]) && $_SESSION["user_is_mod"] == true){
 // Kullanıcı moderator ise oyunu kimin eklediğini ve düzenleme, silme gibi ayarları göster.
 ?>
@@ -105,27 +111,19 @@ if(isset($_SESSION["user_is_mod"]) && $_SESSION["user_is_mod"] == true){
 <?php
 };
 // Kullanıcı bu oyuna yorum bırakmamıs ise yorum kutusu ekle
-if(isset($_SESSION["user_id"]) && !isset($_POST["comment"])){ 
-  $user_id = $_SESSION["user_id"];
-  $q = mysqli_query($db, "SELECT users.*, ratings.* FROM users 
-    LEFT JOIN ratings ON users.user_id = ratings.user_id
-    WHERE users.user_id = '$user_id' AND ratings.game_id = '$game_id'
-    LIMIT 1");
-  $rows = mysqli_num_rows($q);
-  if($rows == 0){
+if(!isset($user_has_comment)){
 ?>
 <form id="comment"class="card comment_size horizontal"  action="" method="post">
   <textarea form="comment"name="comment" class="comment_size hh hw comment-text-box" id="comment" type="text"placeholder="Oyun hakkında düşüncelerini yaz. (Maks 500 karakter)" required></textarea>
-  <div class="vertical">    
+  <div class="vertical">
     <input class="hh" type="number" id="rating" name="rating"min="0"max="10"step="0.5" placeholder="0-10 Aralığında Puan Ver" required>
     <input class="btn green p1" type="submit" value="Gönder">
   </div>
 </form>
 <?php
-    };
 };
 // Yorumları yazdır
-for ($i=0; $i < $comment_num ; $i++) {     
+for ($i=0; $i < $comment_num ; $i++) {
 ?>
 <div class="card vertical comment_size <?php echo $comments[$i]["rating_point"] >= 7 ? "green":($comments[$i]["rating_point"] <= 3 ? "red":"orange") ?> ">
   <div class="fw fh"style="min-width: 0px; min-height: 0px;">
@@ -164,4 +162,3 @@ for ($i=0; $i < $comment_num ; $i++) {
 <?php };?>
 </main>
 <?php include_once "site/footer.php"; ?>
-
