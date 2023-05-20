@@ -15,3 +15,40 @@ infinityfree Link : http://oyungurmesi.epizy.com/index.php
   - Moderatörler, kullanıcıların sahip olduğu izinlere sahiptirler.
   - Moderatörler, oluşturulmuş oyunları düzenleyebilir yada silebilirler.
   - Moderatörler, oluşturulmuş yorumları düzenleyebilir yada silebilirler.
+
+## Kurulum
+
+Eğer bu projeyi kendi bilgisayarınızda çalıştırmak istiyorsanız önceden [XAMPP](https://www.apachefriends.org/)'ın sisteminizde yüklü olması gerekmektedir. Eğer bu program zaten yüklü ise, aşağıdaki adımları izleyebilirsiniz.
+
+#### 1. Adım
+
+Bu repoyu [indirin](https://github.com/enfyna/PHP-Projem/archive/refs/heads/main.zip).
+
+#### 2. Adım
+
+İndirdiğiniz zip dosyasını XAMPP'ın bilgisayarınızda kurulu olduğu dizindeki **htdocs** klasörüne atın.
+**htdocs** klasörünüz boş değilse diğer dosyalarınızın yedeğini aldıktan sonra silin ve zip dosyasını çıkarın.
+Zip dosyasını çıkardıktan sonra zip'i silebilirsiniz.Ondan sonra **SQL** klasörünü açın, bu klasör birazdan işimize yarayacak kapatmayın.Şimdilik alta alabilirsiniz.
+
+#### 3. Adım 
+
+XAMPP'ı başlatın ve MySQL, Apache hizmetlerini başlatın.
+
+#### 4.Adım
+
+İstediğiniz internet tarayıcısını açın ve [phpMyAdmin](http://localhost/phpmyadmin/)'e girin.
+
+#### 5.Adım
+
+Yeni bir database oluşturun ve adını '**db1**' olarak dilini de **utf8mb4_general_ci** olarak ayarlayın.
+
+#### 6.Adım
+
+Database oluşturulduktan sonra SQL sekmesini açın.Ve biraz önce alta aldığımız **SQL** klasörünü açın.**SQL** klasöründe *empty.sql* ve *preset.sql* olmak üzere 2 dosya var. *preset.sql* dosyasını seçerseniz sitede 5 oyun, 3 kullanıcı ve 4 tane yorum yapılmış bir şekilde gelir.*empty.sql* seçerseniz site boş gelir. İstediğiniz dosyayı not defteri ile açtıktan sonra içindeki herşeyi kopyalayıp SQL sekmesine yapıştırın ve sorguyu çalıştırın.
+
+#### 7.Adım
+
+[Site](http://localhost/)'yi başarılı bir şekilde kurdunuz!
+
+
+   
