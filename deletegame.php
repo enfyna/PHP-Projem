@@ -45,13 +45,12 @@ $game_image = $game_data["game_image"];
             <br><br><br><br>
             <div class="fw center">
                 <button class="btn green p1 wt" onclick="window.location.href='index.php';">Vazgeç</button>
-                <button class="btn red p1 wt" type="submit">Sil</button>
+                <button class="btn red p1 wt" type="submit" name="delete" value="true">Sil</button>
             </div>
             <br><br><br><br>
             <h3>Bu oyuna <?php echo $_POST["comment_num"];?> yorum yapılmış. Hepsi kaybolacak .</h3>
             <br><br><br><br>
             <h3>Sonsuza kadar.😱</h3>
-            <input type="hidden" name="delete" value="true">
             <input type="hidden" name="game_id" value="<?php echo $game_id ?>">
         </form>
     </div>
