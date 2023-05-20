@@ -12,7 +12,7 @@ if (!isset($_GET['game_id'])){ // Oyun IDsi alınamazsa ana menuye geri dön
 };
 $game_id = $_GET['game_id']; 
 
-$query = "SELECT games.*,users.user_name,users.user_point,users.user_is_mod FROM games JOIN users ON games.user_id = users.user_id WHERE games.game_id = '$game_id'";
+$query = "SELECT games.*,users.user_name,users.user_point,users.user_is_mod FROM games LEFT JOIN users ON games.user_id = users.user_id WHERE games.game_id = '$game_id'";
 $q = mysqli_query($db, $query); // Oyun bilgilerini ve oyunu ekleyen kullanıcının bilgilerini al 
  
 $row_num = mysqli_num_rows($q);
