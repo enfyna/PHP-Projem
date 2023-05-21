@@ -49,5 +49,7 @@ Database oluşturulduktan sonra SQL sekmesini açın.Ve biraz önce alta aldığ
 
 [Site](http://localhost/)'yi başarılı bir şekilde kurdunuz!
 
+## Kullanım Videosu
 
-   
+https://youtu.be/iWel7nunFU4
+
