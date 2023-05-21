@@ -111,7 +111,7 @@ if(isset($_SESSION["user_is_mod"]) && $_SESSION["user_is_mod"] == true){
 <?php
 };
 // Kullanıcı bu oyuna yorum bırakmamıs ise yorum kutusu ekle
-if(!isset($user_has_comment)){
+if(isset($_SESSION["user_id"]) && !isset($user_has_comment)){
 ?>
 <form id="comment"class="card comment_size horizontal"  action="" method="post">
   <textarea form="comment"name="comment" class="comment_size hh hw comment-text-box" id="comment" type="text"placeholder="Oyun hakkında düşüncelerini yaz. (Maks 500 karakter)" required></textarea>
