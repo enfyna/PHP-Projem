@@ -2,7 +2,7 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql210.epizy.com
+-- Host: localhost
 -- Generation Time: May 20, 2023 at 06:45 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.22
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `epiz_34239648_db1`
+-- Database: `db1`
 --
 
 -- --------------------------------------------------------
