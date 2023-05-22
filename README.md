@@ -2,6 +2,11 @@
 
 Link : http://oyungurmesi.epizy.com/index.php
 
+### Moderatör Hesabı 
+
+- ##### Kullanıcı Adı : Ramazan
+- ##### Şifre : 123456
+
 ## Konu
   Oyun puanlama sitesi
 
