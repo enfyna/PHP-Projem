@@ -1,6 +1,6 @@
 # Web Programlama Dersi PHP Projem
 
-infinityfree Link : http://oyungurmesi.epizy.com/index.php
+Link : http://oyungurmesi.epizy.com/index.php
 
 ## Konu
   Oyun puanlama sitesi
