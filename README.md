@@ -43,11 +43,16 @@ Yeni bir database oluşturun ve adını '**db1**' olarak dilini de '**utf8mb4_ge
 
 #### 6.Adım
 
-Database oluşturulduktan sonra SQL sekmesini açın.Ve biraz önce alta aldığımız **SQL** klasörünü açın.**SQL** klasöründe *empty.sql* ve *preset.sql* olmak üzere 2 dosya var. *preset.sql* dosyasını seçerseniz sitede 5 oyun, 3 kullanıcı ve 4 tane yorum yapılmış bir şekilde gelir.*empty.sql* seçerseniz site boş gelir. İstediğiniz dosyayı not defteri ile açtıktan sonra içindeki herşeyi kopyalayıp SQL sekmesine yapıştırın ve sorguyu çalıştırın.
+Database oluşturulduktan sonra SQL sekmesini açın.Ve biraz önce alta aldığımız **SQL** klasörünü açın. İstediğiniz dosyayı not defteri ile açtıktan sonra içindeki herşeyi kopyalayıp SQL sekmesine yapıştırın ve sorguyu çalıştırın.
+(**SQL** klasöründe *empty.sql* ve *preset.sql* olmak üzere 2 dosya var. *preset.sql* dosyasını seçerseniz sitede 5 oyun, 3 kullanıcı ve 4 tane yorum yapılmış bir şekilde gelir.*empty.sql* seçerseniz site boş gelir.)
 
 #### 7.Adım
 
 [Site](http://localhost/)'yi başarılı bir şekilde kurdunuz!
+
+#### 8.Adım
+
+Moderatör hesabı oluşturmak için siteye kayıt olduktan sonra [phpMyAdmin](http://localhost/phpmyadmin/)'den kullanıcının *user_is_mod* değerini **1** olarak ayarlamanız gerekmekte.
 
 ## Kullanım Videosu
 
