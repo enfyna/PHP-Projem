@@ -1,6 +1,6 @@
 # Web Programlama Dersi PHP Projem
 
-Link : http://oyungurmesi.epizy.com/index.php
+Link : https://oyungurmesi.epizy.com
 
 ### Moderatör Hesabı 
 
